@@ -343,6 +343,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "af6a511d37dba5fb8f01bf5485bc619a1a1959e1aaf666a7597df8fe615a0816"
 dependencies = [
  "critical-section",
+ "log",
 ]
 
 [[package]]
