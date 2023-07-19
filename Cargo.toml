@@ -1,0 +1,35 @@
+[package]
+name = "bmp180_driver"
+version = "0.1.0"
+authors = ["Juraj Sadel <juraj.sadel@espressif.com>"]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hal = { package = "esp32c3-hal", version = "0.10.0", features = ["embassy", "async", "embassy-time-systick"] }
+log = "0.4.16"
+nb = "1.0.0"
+# embedded-hal       = { version = "0.2.7", features = ["unproven"] }
+# embedded-hal-1     = { version = "=1.0.0-alpha.10", optional = true, package = "embedded-hal" }
+embedded-io = "0.4.0"
+heapless = "0.7.16"
+esp-backtrace = { version = "0.7.0", features = ["esp32c3", "panic-handler", "exception-handler", "print-uart"] }
+esp-println       = { version = "0.5.0", features = ["esp32c3"] }
+# embedded-hal-async = { version = "=0.2.0-alpha.2", optional = true }
+
+embassy-executor  = { version = "0.2.0", features = ["nightly", "integrated-timers", "arch-riscv32", "executor-thread"] }
+embassy-time       = { version = "0.1.1", features = ["nightly"], optional = true }
+embedded-hal       = { version = "0.2.7", features = ["unproven"] }
+embedded-hal-1     = { version = "=1.0.0-alpha.10", optional = true, package = "embedded-hal" }
+embedded-hal-async = { version = "=0.2.0-alpha.1", optional = true }
+embedded-hal-nb    = { version = "=1.0.0-alpha.2", optional = true }
+embedded-can       = { version = "0.4.1", optional = true }
+
+static_cell       = "1.1.0"
+[features]
+# async=[]
+async                = ["hal/async", "embedded-hal-async"]
+embassy              = ["hal/embassy"]
+embassy-time-systick = ["hal/embassy-time-systick", "embassy-time/tick-hz-16_000_000"]
+
+[patch.crates-io]
